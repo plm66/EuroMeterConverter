@@ -5,17 +5,28 @@ export default function InformationSection() {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <Card className="overflow-hidden">
-      <CardContent className="p-6">
+    <Card className="overflow-hidden border-0 shadow-lg rounded-xl">
+      <div className="bg-gradient-to-r from-accent to-green-400 p-4 text-white">
+        <h2 className="text-lg font-semibold flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          À propos de ce convertisseur
+        </h2>
+      </div>
+      <CardContent className="p-6 bg-white">
         <div
           className="flex justify-between items-center cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span className="text-lg font-semibold text-secondary-dark">About this Converter</span>
-          <span className={`transition duration-300 ${isOpen ? "rotate-180" : ""}`}>
+          <span className="text-lg font-medium text-slate-800 flex items-center">
+            <span className="mr-2 text-lg">✨</span>
+            Comprendre les conversions immobilières
+          </span>
+          <span className={`transition duration-300 ${isOpen ? "rotate-180" : ""} bg-blue-50 p-2 rounded-full`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-slate-500"
+              className="h-5 w-5 text-primary"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -31,17 +42,43 @@ export default function InformationSection() {
         </div>
         
         {isOpen && (
-          <div className="mt-3 text-sm text-slate-600 space-y-3">
-            <p>This converter helps you quickly translate property prices between European and UAE standards:</p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Euros per square meter (EUR/m²) is commonly used in European real estate</li>
-              <li>Emirati Dirhams per square foot (AED/ft²) is used in UAE real estate with Western influence</li>
-              <li>The conversion accounts for both currency exchange and unit of area differences</li>
-            </ul>
-            <p>The calculation uses the following formula:</p>
-            <div className="bg-slate-100 p-3 rounded-md text-sm font-mono">
-              <p>EUR/m² to AED/ft²: (EUR × exchange_rate) ÷ 10.764</p>
-              <p>AED/ft² to EUR/m²: (AED × 10.764) ÷ exchange_rate</p>
+          <div className="mt-5 text-slate-600 space-y-4 bg-gradient-to-r from-blue-50 to-green-50 p-5 rounded-xl border border-blue-100">
+            <p className="leading-relaxed">Ce convertisseur vous aide à traduire rapidement les prix immobiliers entre les standards européens et émiratis :</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div className="bg-white p-4 rounded-lg shadow-sm border border-blue-100">
+                <div className="flex items-center mb-2">
+                  <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white mr-2">€</div>
+                  <h3 className="font-medium text-primary">Europe</h3>
+                </div>
+                <p className="text-sm">Prix en euros par mètre carré (EUR/m²), utilisé couramment dans l'immobilier européen</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm border border-yellow-100">
+                <div className="flex items-center mb-2">
+                  <div className="h-8 w-8 rounded-full bg-secondary flex items-center justify-center text-slate-800 mr-2">AED</div>
+                  <h3 className="font-medium text-secondary">Émirats Arabes Unis</h3>
+                </div>
+                <p className="text-sm">Prix en dirhams émiratis par pied carré (AED/ft²), utilisé dans l'immobilier émirati avec influence occidentale</p>
+              </div>
+            </div>
+            <p className="leading-relaxed">La conversion prend en compte à la fois le taux de change des devises et les différences d'unités de superficie.</p>
+            <div>
+              <p className="mb-2 font-medium text-slate-700">Les formules utilisées:</p>
+              <div className="bg-white p-4 rounded-lg shadow-sm border border-slate-200 font-mono text-sm space-y-2">
+                <div className="flex items-center">
+                  <span className="text-primary font-semibold mr-2">EUR/m² → AED/ft²:</span>
+                  <span>(EUR × 4.0) ÷ 10.764</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-secondary font-semibold mr-2">AED/ft² → EUR/m²:</span>
+                  <span>(AED × 10.764) ÷ 4.0</span>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 bg-amber-50 p-3 rounded-lg border border-amber-100">
+              <p className="text-sm flex items-center">
+                <span className="text-amber-500 mr-2">💡</span>
+                <span>Conseil: Utilisez notre convertisseur pour comparer facilement les prix immobiliers entre l'Europe et les EAU!</span>
+              </p>
             </div>
           </div>
         )}
