@@ -15,7 +15,7 @@ export default function ConverterCard() {
   const [error, setError] = useState<string | null>(null);
   
   // Constants
-  const exchangeRate = 10.8; // 1 EUR = 10.8 MAD
+  const exchangeRate = 4.0; // 1 EUR = 4.0 AED
   const sqmToSqftRate = 10.764; // 1 m² = 10.764 ft²
   
   // Handle direction toggle
@@ -94,7 +94,7 @@ export default function ConverterCard() {
             <div className="relative rounded-md shadow-sm">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <span className="text-slate-500 sm:text-sm">
-                  {isEurToMad ? '€' : 'MAD'}
+                  {isEurToMad ? '€' : 'AED'}
                 </span>
               </div>
               <Input
@@ -128,14 +128,14 @@ export default function ConverterCard() {
           {/* Result Display */}
           <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
             <Label className="block text-sm font-medium text-secondary-dark mb-1">
-              {isEurToMad ? 'Price in MAD/ft²' : 'Price in EUR/m²'}
+              {isEurToMad ? 'Price in AED/ft²' : 'Price in EUR/m²'}
             </Label>
             <div className="flex items-center justify-between">
               <div className="text-2xl font-semibold text-primary">
                 {resultValue.toFixed(2)}
               </div>
               <div className="text-sm text-slate-500">
-                {isEurToMad ? 'MAD/ft²' : '€/m²'}
+                {isEurToMad ? 'AED/ft²' : '€/m²'}
               </div>
             </div>
           </div>
@@ -155,7 +155,7 @@ export default function ConverterCard() {
         <div className="mt-6 pt-4 border-t border-slate-200">
           <div className="flex justify-between items-center">
             <span className="text-sm text-slate-500">Current Exchange Rate:</span>
-            <span className="text-sm font-medium">1 EUR = {exchangeRate} MAD</span>
+            <span className="text-sm font-medium">1 EUR = {exchangeRate} AED</span>
           </div>
           <div className="flex justify-between items-center mt-1">
             <span className="text-sm text-slate-500">Unit Conversion:</span>

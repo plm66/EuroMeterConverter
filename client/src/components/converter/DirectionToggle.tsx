@@ -26,12 +26,12 @@ export default function DirectionToggle({ onToggle }: DirectionToggleProps) {
           <span 
             className={`px-3 py-1 rounded font-medium text-secondary-dark ${isChecked ? "" : "text-white z-10"}`}
           >
-            EUR/m² → MAD/ft²
+            EUR/m² → AED/ft²
           </span>
           <span 
             className={`px-3 py-1 rounded font-medium text-secondary-dark ${isChecked ? "text-white z-10" : ""}`}
           >
-            MAD/ft² → EUR/m²
+            AED/ft² → EUR/m²
           </span>
           <div 
             className={`absolute inset-y-0 bg-primary w-1/2 rounded transition-all duration-300 transform ${isChecked ? "translate-x-full" : "translate-x-0"} h-10`}
