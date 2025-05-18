@@ -20,15 +20,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       // Constants
-      const exchangeRate = 10.8; // 1 EUR = 10.8 MAD
+      const exchangeRate = 4.0; // 1 EUR = 4.0 AED
       const sqmToSqftRate = 10.764; // 1 m² = 10.764 ft²
       
       let result;
       if (isEurToMad) {
-        // EUR/m² to MAD/ft²
+        // EUR/m² to AED/ft²
         result = (numValue * exchangeRate) / sqmToSqftRate;
       } else {
-        // MAD/ft² to EUR/m²
+        // AED/ft² to EUR/m²
         result = (numValue * sqmToSqftRate) / exchangeRate;
       }
       
