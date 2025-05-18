@@ -32,16 +32,16 @@ export default function InformationSection() {
         
         {isOpen && (
           <div className="mt-3 text-sm text-slate-600 space-y-3">
-            <p>This converter helps you quickly translate property prices between European and Moroccan standards:</p>
+            <p>This converter helps you quickly translate property prices between European and UAE standards:</p>
             <ul className="list-disc pl-5 space-y-1">
               <li>Euros per square meter (EUR/m²) is commonly used in European real estate</li>
-              <li>Dirhams per square foot (MAD/ft²) is used in Moroccan real estate with Western influence</li>
+              <li>Emirati Dirhams per square foot (AED/ft²) is used in UAE real estate with Western influence</li>
               <li>The conversion accounts for both currency exchange and unit of area differences</li>
             </ul>
             <p>The calculation uses the following formula:</p>
             <div className="bg-slate-100 p-3 rounded-md text-sm font-mono">
-              <p>EUR/m² to MAD/ft²: (EUR × exchange_rate) ÷ 10.764</p>
-              <p>MAD/ft² to EUR/m²: (MAD × 10.764) ÷ exchange_rate</p>
+              <p>EUR/m² to AED/ft²: (EUR × exchange_rate) ÷ 10.764</p>
+              <p>AED/ft² to EUR/m²: (AED × 10.764) ÷ exchange_rate</p>
             </div>
           </div>
         )}

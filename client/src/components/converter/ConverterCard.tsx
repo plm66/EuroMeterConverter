@@ -89,7 +89,7 @@ export default function ConverterCard() {
           {/* Source Input Group */}
           <div className="space-y-2">
             <Label htmlFor="source-value" className="text-sm font-medium text-secondary-dark">
-              {isEurToMad ? 'Price in EUR/m²' : 'Price in MAD/ft²'}
+              {isEurToMad ? 'Price in EUR/m²' : 'Price in AED/ft²'}
             </Label>
             <div className="relative rounded-md shadow-sm">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">

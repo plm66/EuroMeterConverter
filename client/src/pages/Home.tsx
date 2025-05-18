@@ -7,7 +7,7 @@ export default function Home() {
       {/* Header */}
       <header className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-secondary-dark mb-2">Property Price Converter</h1>
-        <p className="text-slate-500">Convert between Euros per square meter and Dirhams per square foot</p>
+        <p className="text-slate-500">Convert between Euros per square meter and Emirati Dirhams per square foot</p>
       </header>
       
       {/* Converter Card Component */}
