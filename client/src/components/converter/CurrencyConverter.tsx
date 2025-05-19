@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { fetchExchangeRates, formatCurrency } from "@/lib/currencyApi";
 
 type Currency = {
   code: string;
@@ -24,19 +25,64 @@ export default function CurrencyConverter() {
   const [result, setResult] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [rates, setRates] = useState<Record<string, number> | null>(null);
+  const [lastUpdated, setLastUpdated] = useState<string>("");
   
-  // For now, using static exchange rates
-  const exchangeRates: Record<string, Record<string, number>> = {
-    EUR: { USD: 1.09, AED: 4.0, BTC: 0.000018, EUR: 1 },
-    USD: { EUR: 0.92, AED: 3.67, BTC: 0.000016, USD: 1 },
-    AED: { EUR: 0.25, USD: 0.27, BTC: 0.0000044, AED: 1 },
-    BTC: { EUR: 55555.56, USD: 60606.06, AED: 227272.73, BTC: 1 }
+  // Fetch exchange rates on component mount
+  useEffect(() => {
+    fetchRates();
+  }, []);
+  
+  // Fetch fresh rates when fromCurrency changes
+  useEffect(() => {
+    if (fromCurrency) {
+      fetchRates();
+    }
+  }, [fromCurrency]);
+  
+  const fetchRates = async () => {
+    try {
+      setLoading(true);
+      const data = await fetchExchangeRates();
+      
+      if (data.success) {
+        setRates(data.rates);
+        setLastUpdated(data.date);
+        setError(null);
+      } else {
+        console.error("Failed to fetch rates:", data);
+        setError("Could not fetch latest exchange rates");
+        // Fallback to static rates if API fails
+        setRates({
+          EUR: 1,
+          USD: 1.09,
+          AED: 4.0,
+          BTC: 0.000018
+        });
+      }
+    } catch (err) {
+      console.error("Error fetching rates:", err);
+      setError("Failed to connect to exchange rate service");
+      // Fallback to static rates if API fails
+      setRates({
+        EUR: 1,
+        USD: 1.09,
+        AED: 4.0,
+        BTC: 0.000018
+      });
+    } finally {
+      setLoading(false);
+    }
   };
   
-  // TODO: Replace with API call in future
   const calculateConversion = () => {
     if (!amount || isNaN(parseFloat(amount))) {
       setError("Please enter a valid amount");
+      return;
+    }
+    
+    if (!rates) {
+      setError("Exchange rates not available");
       return;
     }
     
@@ -45,15 +91,29 @@ export default function CurrencyConverter() {
     
     try {
       const numAmount = parseFloat(amount);
-      const rate = exchangeRates[fromCurrency][toCurrency];
-      const convertedAmount = numAmount * rate;
       
-      // Simulate API delay
+      // Since Fixer API free plan only allows EUR as base, we need to calculate cross rates
+      let convertedAmount: number;
+      
+      if (fromCurrency === "EUR") {
+        // Direct conversion from EUR
+        convertedAmount = numAmount * rates[toCurrency];
+      } else if (toCurrency === "EUR") {
+        // Direct conversion to EUR
+        convertedAmount = numAmount / rates[fromCurrency];
+      } else {
+        // Cross conversion via EUR
+        // First convert to EUR, then to target currency
+        const amountInEur = numAmount / rates[fromCurrency];
+        convertedAmount = amountInEur * rates[toCurrency];
+      }
+      
       setTimeout(() => {
         setResult(convertedAmount);
         setLoading(false);
-      }, 500);
+      }, 300);
     } catch (err) {
+      console.error("Conversion error:", err);
       setError("Conversion failed. Please try again.");
       setLoading(false);
     }
@@ -189,14 +249,20 @@ export default function CurrencyConverter() {
                 </span>
               </div>
               <p className="text-xs text-gray-400 mt-4 text-right">
-                Exchange rates last updated on {new Date().toLocaleDateString()}
+                Exchange rates last updated on {lastUpdated || new Date().toLocaleDateString()}
               </p>
             </div>
           )}
           
           <div className="text-xs text-gray-500 mt-4">
-            <p>Note: Currently using static exchange rates for demonstration.</p>
-            <p>Integration with real-time exchange rate API coming soon.</p>
+            <p>Powered by Fixer.io with daily exchange rate updates.</p>
+            {error && (
+              <p className="text-orange-500 text-xs mt-1">
+                {error === "Could not fetch latest exchange rates" 
+                  ? "Using cached rates due to API request limit." 
+                  : error}
+              </p>
+            )}
           </div>
         </div>
       </div>
