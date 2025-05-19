@@ -28,17 +28,10 @@ export default function CurrencyConverter() {
   const [rates, setRates] = useState<Record<string, number> | null>(null);
   const [lastUpdated, setLastUpdated] = useState<string>("");
   
-  // Fetch exchange rates on component mount
+  // Fetch exchange rates on component mount only once
   useEffect(() => {
     fetchRates();
   }, []);
-  
-  // Fetch fresh rates when fromCurrency changes
-  useEffect(() => {
-    if (fromCurrency) {
-      fetchRates();
-    }
-  }, [fromCurrency]);
   
   const fetchRates = async () => {
     try {
@@ -50,15 +43,19 @@ export default function CurrencyConverter() {
         setLastUpdated(data.date);
         setError(null);
       } else {
-        console.error("Failed to fetch rates:", data);
-        setError("Could not fetch latest exchange rates");
-        // Fallback to static rates if API fails
-        setRates({
-          EUR: 1,
-          USD: 1.09,
-          AED: 4.0,
-          BTC: 0.000018
-        });
+        // Use static rates but don't show error if we have valid rates already
+        if (!rates) {
+          console.log("Using fallback static rates - API access limited");
+          // Fallback to static rates if API fails
+          setRates({
+            EUR: 1,
+            USD: 1.09,
+            AED: 4.0,
+            BTC: 0.000018
+          });
+          setLastUpdated(new Date().toLocaleDateString());
+          setError("Using approximate exchange rates");
+        }
       }
     } catch (err) {
       console.error("Error fetching rates:", err);
