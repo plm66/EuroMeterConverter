@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Dubai Image */}
-      <div className="relative mb-16 h-[600px]" style={{ 
+      <div className="relative mb-6 h-[600px]" style={{ 
         backgroundImage: `url(${dubaiImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
@@ -29,7 +29,7 @@ export default function Home() {
         
       <div className="container mx-auto px-6 max-w-5xl">
         {/* Main Content */}
-        <div className="mb-20 pt-10">
+        <div className="mb-20 pt-2">
           {/* Converter Card Component */}
           <ConverterCard />
           
