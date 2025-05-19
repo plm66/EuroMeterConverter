@@ -17,8 +17,11 @@ export default function Home() {
               EuroMeterConvert
             </h1>
             <div className="h-0.5 w-24 bg-secondary mx-auto my-6"></div>
-            <p className="text-xl text-white font-light mb-8">
+            <p className="text-xl text-white font-light mb-3">
               Property Price Converter for Investissors
+            </p>
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+              Converting between Euros per square meter and UAE Dirhams per square foot made simple
             </p>
           </div>
         </div>
@@ -28,10 +31,7 @@ export default function Home() {
         {/* Main Content */}
         <div className="mb-20">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Property Price Converter</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Converting between Euros per square meter and UAE Dirhams per square foot made simple
-            </p>
+            <h2 className="text-4xl font-bold mb-4">Converter Tool</h2>
           </div>
           
           {/* Converter Card Component */}
