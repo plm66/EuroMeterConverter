@@ -14,11 +14,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
           <div className="text-center max-w-4xl px-6">
             <h1 className="text-6xl text-white font-extrabold mb-6">
-              Tailored content that converts, engages, and inspires
+              EuroMeterConvert
             </h1>
             <div className="h-0.5 w-24 bg-secondary mx-auto my-6"></div>
             <p className="text-xl text-white font-light mb-8">
-              Property Price Converter for Real Estate Companies
+              Property Price Converter for Investissors
             </p>
           </div>
         </div>
