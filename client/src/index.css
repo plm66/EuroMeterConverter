@@ -65,11 +65,12 @@ input[type=number] {
 
   body {
     @apply antialiased bg-background text-foreground;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Raleway', sans-serif;
+    @apply tracking-tight font-extrabold;
   }
   
   .luxury-gradient {
@@ -78,6 +79,10 @@ input[type=number] {
   
   .gold-gradient {
     @apply bg-gradient-to-r from-yellow-500 via-secondary to-yellow-600 text-transparent bg-clip-text;
+  }
+
+  .font-raleway {
+    font-family: 'Raleway', sans-serif;
   }
   
   .dubai-background {

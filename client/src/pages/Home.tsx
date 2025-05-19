@@ -8,15 +8,15 @@ export default function Home() {
         <div className="container mx-auto px-6 py-12 max-w-5xl">
           {/* Header */}
           <header className="mb-12 text-center">
-            <div className="bg-[rgba(29,41,81,0.85)] backdrop-blur-md rounded-xl p-6 shadow-xl border border-secondary/30">
-              <h1 className="text-5xl font-bold text-secondary mb-4 tracking-tight">
-                LUXURY PROPERTY PRICE CONVERTER
+            <div className="bg-[rgba(15,30,65,0.92)] backdrop-blur-md rounded-xl p-8 shadow-xl border border-secondary/30">
+              <h1 className="text-6xl font-extrabold text-secondary mb-5 tracking-tight font-raleway leading-tight">
+                Tailored Property<br/>Price Converter
               </h1>
-              <div className="h-0.5 w-24 bg-secondary mx-auto my-4"></div>
-              <p className="text-lg text-white font-light mb-1">
+              <div className="h-0.5 w-24 bg-secondary mx-auto my-5"></div>
+              <p className="text-lg text-white font-light mb-2 uppercase tracking-widest">
                 DUBAI • ABU DHABI • EUROPE • INTERNATIONAL
               </p>
-              <p className="text-sm text-white/80">Converting Euros per square meter and UAE Dirhams per square foot</p>
+              <p className="text-sm text-white/80 font-raleway">Converting Euros per square meter and UAE Dirhams per square foot</p>
             </div>
           </header>
           
