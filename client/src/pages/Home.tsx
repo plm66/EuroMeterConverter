@@ -1,11 +1,16 @@
 import ConverterCard from "@/components/converter/ConverterCard";
 import InformationSection from "@/components/converter/InformationSection";
+import dubaiImage from "@assets/6-1240x720.jpg";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Dubai Image */}
-      <div className="dubai-hero relative mb-16">
+      <div className="relative mb-16 h-[600px]" style={{ 
+        backgroundImage: `url(${dubaiImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
           <div className="text-center max-w-4xl px-6">
             <h1 className="text-6xl text-white font-extrabold mb-6">

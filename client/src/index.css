@@ -79,7 +79,7 @@ input[type=number] {
   }
   
   .dubai-hero {
-    background-image: url('https://i.ibb.co/9bYnzTD/6-1240x720.jpg');
+    background-image: url('@assets/6-1240x720.jpg');
     background-size: cover;
     background-position: center;
     height: 600px;
