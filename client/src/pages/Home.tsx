@@ -8,8 +8,8 @@ export default function Home() {
         <div className="container mx-auto px-6 py-12 max-w-5xl">
           {/* Header */}
           <header className="mb-12 text-center">
-            <div className="bg-white/20 backdrop-blur-md rounded-xl p-6 shadow-xl">
-              <h1 className="text-5xl font-bold luxury-gradient mb-4 tracking-tight">
+            <div className="bg-[rgba(29,41,81,0.85)] backdrop-blur-md rounded-xl p-6 shadow-xl border border-secondary/30">
+              <h1 className="text-5xl font-bold text-secondary mb-4 tracking-tight">
                 LUXURY PROPERTY PRICE CONVERTER
               </h1>
               <div className="h-0.5 w-24 bg-secondary mx-auto my-4"></div>
@@ -26,19 +26,20 @@ export default function Home() {
           {/* Information Section Component */}
           <InformationSection />
           
-          {/* Property Carousel Placeholder - To Be Implemented */}
-          <div className="mt-12 bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-xl text-center text-white">
-            <h3 className="text-2xl font-semibold mb-4">Featured Properties</h3>
+          {/* Property Carousel - Sponsor/Developer Showcase */}
+          <div className="mt-12 bg-[rgba(29,41,81,0.85)] backdrop-blur-md rounded-xl p-6 shadow-xl text-center text-white border border-secondary/30">
+            <h3 className="text-2xl font-semibold mb-4 text-secondary font-playfair">SPONSORED PROPERTIES</h3>
             <div className="h-0.5 w-16 bg-secondary mx-auto mb-6"></div>
-            <p className="text-white/80 mb-6">Discover stunning properties in the most prestigious locations</p>
+            <p className="text-white/80 mb-6">Discover luxury properties from our premium sponsors</p>
             
             <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide">
               {/* Property Cards - These would be dynamically generated based on selection */}
-              <div className="min-w-[240px] bg-white/30 backdrop-blur-md rounded-lg p-4 shadow-lg">
-                <div className="h-36 bg-accent/20 rounded-lg mb-3 flex items-center justify-center">
-                  <p className="text-xs text-white/80">Property Image</p>
+              <div className="min-w-[240px] bg-white/20 backdrop-blur-md rounded-lg p-4 shadow-lg border border-secondary/20">
+                <div className="h-36 bg-accent/10 rounded-lg mb-3 flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute top-0 right-0 bg-secondary/80 text-accent text-xs font-bold px-2 py-1">SPONSORED</div>
+                  <p className="text-xs text-white/80">Premium Property</p>
                 </div>
-                <h4 className="text-lg font-medium mb-1">Palm Jumeirah Villa</h4>
+                <h4 className="text-lg font-medium mb-1 font-playfair">Palm Jumeirah Villa</h4>
                 <p className="text-sm text-white/80 mb-2">Dubai, UAE</p>
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-white/70">550 m²</span>
@@ -46,11 +47,12 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="min-w-[240px] bg-white/30 backdrop-blur-md rounded-lg p-4 shadow-lg">
-                <div className="h-36 bg-accent/20 rounded-lg mb-3 flex items-center justify-center">
-                  <p className="text-xs text-white/80">Property Image</p>
+              <div className="min-w-[240px] bg-white/20 backdrop-blur-md rounded-lg p-4 shadow-lg border border-secondary/20">
+                <div className="h-36 bg-accent/10 rounded-lg mb-3 flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute top-0 right-0 bg-secondary/80 text-accent text-xs font-bold px-2 py-1">SPONSORED</div>
+                  <p className="text-xs text-white/80">Premium Property</p>
                 </div>
-                <h4 className="text-lg font-medium mb-1">Marina Penthouse</h4>
+                <h4 className="text-lg font-medium mb-1 font-playfair">Marina Penthouse</h4>
                 <p className="text-sm text-white/80 mb-2">Dubai, UAE</p>
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-white/70">320 m²</span>
@@ -58,11 +60,12 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="min-w-[240px] bg-white/30 backdrop-blur-md rounded-lg p-4 shadow-lg">
-                <div className="h-36 bg-accent/20 rounded-lg mb-3 flex items-center justify-center">
-                  <p className="text-xs text-white/80">Property Image</p>
+              <div className="min-w-[240px] bg-white/20 backdrop-blur-md rounded-lg p-4 shadow-lg border border-secondary/20">
+                <div className="h-36 bg-accent/10 rounded-lg mb-3 flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute top-0 right-0 bg-secondary/80 text-accent text-xs font-bold px-2 py-1">SPONSORED</div>
+                  <p className="text-xs text-white/80">Premium Property</p>
                 </div>
-                <h4 className="text-lg font-medium mb-1">Burj Khalifa Apartment</h4>
+                <h4 className="text-lg font-medium mb-1 font-playfair">Burj Khalifa Apartment</h4>
                 <p className="text-sm text-white/80 mb-2">Dubai, UAE</p>
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-white/70">180 m²</span>
@@ -72,9 +75,29 @@ export default function Home() {
             </div>
             
             <div className="mt-6">
-              <button className="bg-secondary/90 hover:bg-secondary text-accent px-6 py-2 rounded-full shadow-md transition-all font-medium text-sm">
-                View All Properties
+              <button className="bg-secondary hover:bg-secondary/90 text-accent px-6 py-2 rounded-full shadow-md transition-all font-medium text-sm">
+                View All Sponsored Properties
               </button>
+            </div>
+            
+            {/* Sponsors Banner */}
+            <div className="mt-10 pt-8 border-t border-white/20">
+              <h4 className="text-sm font-semibold uppercase tracking-wider text-white/70 mb-4">Our Premium Sponsors</h4>
+              <div className="flex justify-center items-center gap-8 flex-wrap">
+                <div className="h-12 w-28 bg-white/10 rounded-md flex items-center justify-center text-secondary font-semibold">
+                  EMAAR
+                </div>
+                <div className="h-12 w-28 bg-white/10 rounded-md flex items-center justify-center text-secondary font-semibold">
+                  DAMAC
+                </div>
+                <div className="h-12 w-28 bg-white/10 rounded-md flex items-center justify-center text-secondary font-semibold">
+                  NAKHEEL
+                </div>
+                <div className="h-12 w-28 bg-white/10 rounded-md flex items-center justify-center text-white/60 text-sm">
+                  Your Brand Here
+                </div>
+              </div>
+              <p className="text-xs text-white/50 mt-4">Interested in promoting your properties? Contact us for sponsorship opportunities.</p>
             </div>
           </div>
           
