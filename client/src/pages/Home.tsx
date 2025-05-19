@@ -1,6 +1,7 @@
 import ConverterCard from "@/components/converter/ConverterCard";
 import InformationSection from "@/components/converter/InformationSection";
 import CurrencyConverter from "@/components/converter/CurrencyConverter";
+import ExchangeRateInfo from "@/components/converter/ExchangeRateInfo";
 import dubaiImage from "@assets/6-1240x720.jpg";
 
 export default function Home() {
@@ -39,6 +40,9 @@ export default function Home() {
           
           {/* Currency Converter Component */}
           <CurrencyConverter />
+          
+          {/* Exchange Rate Information Component */}
+          <ExchangeRateInfo />
         </div>
         
         {/* Sponsored Properties Section */}

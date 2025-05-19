@@ -249,7 +249,7 @@ export default function CurrencyConverter() {
                 </span>
               </div>
               <p className="text-xs text-gray-400 mt-4 text-right">
-                Exchange rates last updated on {lastUpdated || new Date().toLocaleDateString()}
+                Exchange rates last updated on {lastUpdated || new Date().toLocaleDateString()} at {new Date().toLocaleTimeString()}
               </p>
             </div>
           )}
