@@ -59,36 +59,7 @@ export default function ExchangeRateInfo() {
               </ul>
             </div>
             
-            <div>
-              <h3 className="text-lg font-bold text-primary mb-3">Available Endpoints</h3>
-              <p>The Fixer.io API provides several endpoints for different currency data needs:</p>
-              <div className="grid grid-cols-2 gap-4 mt-3 text-sm">
-                <div>
-                  <p className="font-semibold">/latest</p>
-                  <p className="text-gray-500">Current exchange rates</p>
-                </div>
-                <div>
-                  <p className="font-semibold">/convert</p>
-                  <p className="text-gray-500">Currency conversion</p>
-                </div>
-                <div>
-                  <p className="font-semibold">/symbols</p>
-                  <p className="text-gray-500">Available currencies</p>
-                </div>
-                <div>
-                  <p className="font-semibold">/fluctuation</p>
-                  <p className="text-gray-500">Rate changes over time</p>
-                </div>
-                <div>
-                  <p className="font-semibold">/timeseries</p>
-                  <p className="text-gray-500">Historical data series</p>
-                </div>
-                <div>
-                  <p className="font-semibold">/{"{date}"}</p>
-                  <p className="text-gray-500">Historical rates by date</p>
-                </div>
-              </div>
-            </div>
+
           </div>
         )}
       </div>
